@@ -29,6 +29,7 @@ export const GenerateInvoice = () => {
   const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
   const navigateTo = useNavigate();
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     fetchProducts();
   }, []);
