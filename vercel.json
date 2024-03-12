@@ -1,4 +1,6 @@
 {
-  "version": 2,
-	"rewrites": [{ "source": "/(.*)", "destination": "/src" }]
+    "version": 2,
+    "name": "native-server",
+    "builds": [{ "src": "dist", "use": "@vercel/node"}],
+    "routes": [{ "src": "/(.*)", "dest": "dist" }]
   }
