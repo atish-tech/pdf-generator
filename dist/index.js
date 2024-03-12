@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResponseStatus = void 0;
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const auth_1 = __importDefault(require("./routes/auth"));
-const product_1 = __importDefault(require("./routes/product"));
-const app = (0, express_1.default)();
+var express_1 = __importDefault(require("express"));
+var cors_1 = __importDefault(require("cors"));
+var auth_1 = __importDefault(require("./routes/auth"));
+var product_1 = __importDefault(require("./routes/product"));
+var app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 var ResponseStatus;
@@ -20,12 +20,12 @@ var ResponseStatus;
     ResponseStatus[ResponseStatus["Error"] = 500] = "Error";
 })(ResponseStatus || (exports.ResponseStatus = ResponseStatus = {}));
 // default route
-app.get("/", (req, res) => {
+app.get("/", function (req, res) {
     res.status(ResponseStatus.Success).json({ message: "Hello World" });
 });
 app.use("/auth", auth_1.default);
 app.use("/product", product_1.default);
-app.listen(8000, () => {
+app.listen(8000, function () {
     console.log("Server is running on port 8000");
 });
 // "start": "nodemon --exec ts-node src/index.ts"

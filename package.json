@@ -4,9 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
-    "postinstall": "tsc"
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "pre-prod": "rimraf dist && npm run build",
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "predev": "npm run build",
+    "prepare:enviroment": "node scripts/dev-enviroment.cjs",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +39,7 @@
     "express": "^4.18.3",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.0",
+    "rimraf": "^5.0.5",
     "zod": "^3.22.4"
   }
 }
-
-
