@@ -26,3 +26,5 @@ app.use("/product", productRoute);
 app.listen(8000, () => {
   console.log("Server is running on port 8000");
 });
+
+// "start": "nodemon --exec ts-node src/index.ts"
