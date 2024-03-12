@@ -38,6 +38,7 @@ export const GenerateInvoice = () => {
     try {
       const token = localStorage.getItem("token");
       if (!token) return navigateTo("/login");
+      setLoading(true);
       const response = await axios.get(getProductRoute, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -49,6 +50,9 @@ export const GenerateInvoice = () => {
       console.log(error);
 
       toast(error.response.data.message);
+    }
+    finally {
+      setLoading(false);
     }
   };
 

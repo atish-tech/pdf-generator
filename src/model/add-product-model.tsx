@@ -45,11 +45,11 @@ export function AddProductModel({
     productRate: 0,
   });
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const onInputchange = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
+{type}
   const closeHandler = () => {
     setIsOpenDialog(false);
   };
